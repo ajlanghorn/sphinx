@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    # IMPORTANT - Please verify your build commands
+    build:
+      commands: [
+          "yum update -y",
+          "yum upgrade -y",
+          "yum install python3 -y",
+          "pip3 install -U Sphinx",
+          "pip3 install sphinx-rtd-theme",
+          "make clean html"
+      ]
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: build/html
+    files:
+      - '**/*'
+  cache:
+    paths: []
+
